@@ -1,18 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <header>
-      <img src={'img\R.png'} alt="" class="logo"/>
-      <nav>
-        <ul>
-          <a>Inicio</a>
-          <a>Tienda</a>
-          <a>Contacto</a>
-        </ul>
-      </nav>
-    </header>
+    <body>
+    <NavBar />
+    <ItemListContainer />
+    </body>
   );
 }
 
