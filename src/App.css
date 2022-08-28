@@ -36,3 +36,18 @@ nav ul a:hover{
   margin: 3%;
   color: rgb(255, 196, 0);
 }
+.galeria{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1%;
+}
+.card{
+  display: grid;
+  grid-template-columns: repeat(1, 37%) 1fr;
+  width: 95%;
+  font-size: 80%;
+  justify-content: center;
+}
+.pack{
+  width: 165px;
+}
