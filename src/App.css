@@ -47,7 +47,18 @@ nav ul a:hover{
   width: 95%;
   font-size: 80%;
   justify-content: center;
+  border: none;
 }
 .pack{
   width: 165px;
+}
+.botonesCarrito{
+  display: flex;
+  justify-content: center;
+}
+.buttonRS{
+  background-color: transparent;
+  border: none;
+  margin-left: 8%;
+  margin-right: 8%;
 }
