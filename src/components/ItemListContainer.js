@@ -11,9 +11,7 @@ const ItemListContainer = () =>{
         <div>
             <h1 className="ItemListContainer">Bienvenido a la Tienda de Harry Potter</h1>
         <div className="galeria">
-        {Data.map(item => (
-            <ItemList  stock={item.stock} initial={item.initial} onAdd={onAdd} img={item.img} title={item.title} precio={item.precio} description={item.description} />
-        ))}  
+        <ItemList stock />
         </div>
         </div>
     );
