@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
+import promise from "../utils/promise";
+import Data from "../utils/Data";
+/* import Item from "../utils/Item"; */
 
-const ItemCount = (props) => {
+const ItemList = (props) => {
     const [numero, setNumero] = useState(0);
+    const [Items, setItems] = useState([]);
 
     useEffect(() => {
         setNumero(props.initial)
+        promise(Data)
+        .then(result => setItems(result))
+        .catch(err => console.log(err))
     },[])
 
     const contadorSuma = () => {
@@ -20,15 +27,20 @@ const ItemCount = (props) => {
     }
 
     return (
+        <>
+        {Items.map(item => ( 
+            
+            <>
+            <div>
+            <div className='card'>
+            <img src={item.img} alt="pack" className="pack" />
         <div>
-        <div className='card'>
-            <img src={props.img} alt="pack" className="pack" />
-        <div>
-            <h4>{props.title}</h4>
-            <h5>{props.precio}</h5>
-            <p>{props.description}</p>
+            <h4>{item.title}</h4>
+            <h5>{item.precio}</h5>
+            <p>{item.description}</p>
         </div>
         </div>
+
         <div>
             <button onClick={contadorResta} className="buttonRS"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
@@ -42,7 +54,11 @@ const ItemCount = (props) => {
             <button onClick={() => props.onAdd(numero)}>Carrito</button>
         </div>
         </div>
+        </>
+        ))}
+        
+        </>
     );
 }
 
-export default ItemCount;
+export default ItemList;

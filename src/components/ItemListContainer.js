@@ -1,5 +1,5 @@
-import Data from './Data';
-import ItemCount from './ItemCount';
+import Data from '../utils/Data';
+import ItemList from './ItemList';
 
 const ItemListContainer = () =>{
 
@@ -9,11 +9,11 @@ const ItemListContainer = () =>{
 
     return(
         <div>
-            <h2 className="ItemListContainer">Bienvenido a la Tienda de Harry Potter</h2>
+            <h1 className="ItemListContainer">Bienvenido a la Tienda de Harry Potter</h1>
         <div className="galeria">
         {Data.map(item => (
-            <ItemCount stock={item.stock} initial={item.initial} onAdd={onAdd} img={item.img} title={item.title} precio={item.precio} description={item.description} />
-        ))}
+            <ItemList  stock={item.stock} initial={item.initial} onAdd={onAdd} img={item.img} title={item.title} precio={item.precio} description={item.description} />
+        ))}  
         </div>
         </div>
     );
