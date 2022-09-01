@@ -56,9 +56,22 @@ nav ul a:hover{
   display: flex;
   justify-content: center;
 }
+.buttons{
+  margin-bottom: 12%;
+}
 .buttonRS{
   background-color: transparent;
   border: none;
   margin-left: 8%;
   margin-right: 8%;
+}
+.buttonCarrito{
+  background-color: rgb(99, 99, 161);
+  color: rgb(255, 255, 85);
+  border: none;
+  border-radius: 3px;
+  width: 25%;
+}
+.buttonCarrito:hover{
+  color: rgb(255, 196, 0);
 }

@@ -1,11 +1,11 @@
 let value = true;
 
-let promise = (asinc) => {
+let promise = (asinc, time) => {
     return new Promise((resolve, reject) =>{
         if (value){
             setTimeout(() => {
                 resolve(asinc)
-            },2000);
+            },time);
         }else {
             reject("Error")
         }

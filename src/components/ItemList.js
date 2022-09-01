@@ -3,11 +3,11 @@ import ItemCount from './ItemCount';
 import promise from "../utils/promise";
 import Data from "../utils/Data";
 
-const ItemList = (props) => {
+const ItemList = () => {
     const [Items, setItems] = useState([]);
 
     useEffect(() => {
-        promise(Data)
+        promise(Data, 2000)
         .then(result => setItems(result))
         .catch(err => console.log(err))
     },[])
