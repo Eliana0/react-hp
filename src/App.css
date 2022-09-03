@@ -6,7 +6,6 @@ header{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  color: rgb(255, 255, 85);
 }
 .CartWidget{
   display: flex;
@@ -23,12 +22,13 @@ nav ul{
   margin-bottom: 0%;
 }
 nav ul a{
+  color: rgb(255, 255, 85);
   text-decoration: none;
   margin: 2%;
   font-size: 120%;
 }
 nav ul a:hover{
-  color: white;
+  color: rgb(255, 196, 0);
 }
 .ItemListContainer{
   text-align: center;
@@ -74,4 +74,20 @@ nav ul a:hover{
 }
 .buttonCarrito:hover{
   color: rgb(255, 196, 0);
+}
+.buttonMas{
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  width: 70%;
+  color: rgb(99, 99, 161);
+  margin-right: 15%;
+}
+.cardMas{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.linkMas{
+  text-decoration: none;
 }
