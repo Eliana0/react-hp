@@ -49,8 +49,24 @@ nav ul a:hover{
   justify-content: center;
   border: none;
 }
+.cardItem{
+  margin: 10%;
+}
+.blockCard{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 .pack{
   width: 165px;
+}
+.packItem{
+  width: 50%;
+}
+.itemTitulo{
+  color: rgb(99, 99, 161);
+}
+.itemPrecio{
+  color:rgb(255, 196, 0);
 }
 .botonesCarrito{
   display: flex;
@@ -74,6 +90,7 @@ nav ul a:hover{
 }
 .buttonCarrito:hover{
   color: rgb(255, 196, 0);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .buttonMas{
   display: flex;
@@ -83,6 +100,9 @@ nav ul a:hover{
   width: 70%;
   color: rgb(99, 99, 161);
   margin-right: 15%;
+}
+.buttonMas:hover{
+  color: rgb(255, 196, 0);
 }
 .cardMas{
   display: grid;

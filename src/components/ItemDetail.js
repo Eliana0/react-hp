@@ -9,15 +9,22 @@ const ItemDetail = ({item}) =>{
     return(
 
     <>
+    <div className='cardItem'>
+    <div >
+    <div className="blockCard">
     <div>
-    <div className='card'>
-        <img src={item.img} alt="pack" className="pack" />
-    <div>
-        <h4>{item.title}</h4>
-        <h5>{item.precio}</h5>
-        <p>{item.description}</p>
-        <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        <img src={item.img} alt="pack" className="packItem" />
     </div>
+    <div>
+        <h2 className="itemTitulo">{item.title}</h2>
+        <h3 className="itemPrecio">{item.precio}</h3>
+        <h5>Stock: {item.stock}</h5>
+        <h5>3, 6 y 12 cuotas sin interés</h5>
+        <h6>{item.description}</h6>
+        <h6>{item.descriptionII}</h6>
+    </div>
+    </div>
+        <ItemCount stock={5} initial={1} onAdd={onAdd} />
     </div>
     </div>
     </>
