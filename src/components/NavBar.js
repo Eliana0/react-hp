@@ -1,8 +1,12 @@
 import logo from './R.png';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 
 const NavBar=() => {
+  const test = useContext(CartContext);
+  console.log(test)
     return (
       <header>
         <div>

@@ -1,7 +1,15 @@
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+
 const Cart = () => {
+    const test = useContext(CartContext);
+    console.log(test)
     return (
         <>
-        < h1>Hola soy un componente cart</h1>
+        <button onClick={test.clear} className="buttonCarrito">Vaciar Carrito</button>
+        {
+            test.cartList.map(item => <h5>{item.title} {item.qty} unidades <button onClick={() => test.eliminarItem(item.id)}>Eliminar</button></h5>)
+        }
         </>
     )
 }
