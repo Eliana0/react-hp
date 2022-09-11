@@ -87,6 +87,7 @@ nav ul a:hover{
   border: none;
   border-radius: 3px;
   width: 25%;
+  margin: 2%;
 }
 .buttonCarrito:hover{
   color: rgb(255, 196, 0);
@@ -110,4 +111,29 @@ nav ul a:hover{
 }
 .linkMas{
   text-decoration: none;
+}
+.listCart{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin: 2%;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+.imgListCart{
+  width: 200px;
+}
+.listCartBody{
+  margin-top: 5%;
+}
+.listCartButtom{
+  margin-left: 45%;
+  background-color: rgb(99, 99, 161);
+  color: rgb(255, 255, 85);
+  border: none;
+  border-radius: 3px;
+  width: 25%;
+}
+.listCartButtom:hover{
+  color: rgb(255, 196, 0);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

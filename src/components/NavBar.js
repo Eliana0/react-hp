@@ -6,7 +6,6 @@ import { CartContext } from './CartContext';
 
 const NavBar=() => {
   const test = useContext(CartContext);
-  console.log(test)
     return (
       <header>
         <div>

@@ -6,12 +6,13 @@ const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
 
     const addItem = (item, qty) => {
-        let itemDeCarrito = {
-            ...item, qty
-        }
+        let itemDeCarrito = {...item, qty}
         setCartList([
-            ...cartList, itemDeCarrito
+            ...cartList, 
+            itemDeCarrito
         ])
+        const existe = itemDeCarrito.some(item => item.id == itemDeCarrito.id);
+        console.log(existe)
     }
 
     const eliminarItem = (id) =>{
