@@ -11,9 +11,12 @@ const CartContextProvider = ({children}) => {
             ...cartList, 
             itemDeCarrito
         ])
-        const existe = itemDeCarrito.some(item => item.id == itemDeCarrito.id);
-        console.log(existe)
-    }
+        /* numerosId([itemDeCarrito.id]); */
+        /* numerosId.push({id: itemDeCarrito.id}); */
+        console.log(itemDeCarrito)
+           
+        }
+    
 
     const eliminarItem = (id) =>{
         let eliminado = cartList.filter(item => item.id !== id);
