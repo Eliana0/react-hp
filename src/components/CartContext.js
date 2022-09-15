@@ -4,18 +4,33 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
-
+    
     const addItem = (item, qty) => {
+        let encuentra = cartList.find(item => item.id === item.id);
+        if (encuentra === undefined){
+            setCartList([
+                    ...cartList, {
+                    id: item.id,
+                    titulo: item.titulo,
+                    img: item.img,
+                    precio: item.precio,
+                    qty: qty
+                }
+            ])
+        }else{
+            encuentra.qty += qty;
+        }
+    }    
+
+/*     const addItem = (item, qty) => {
         let itemDeCarrito = {...item, qty}
         setCartList([
             ...cartList, 
             itemDeCarrito
         ])
-        /* numerosId([itemDeCarrito.id]); */
-        /* numerosId.push({id: itemDeCarrito.id}); */
         console.log(itemDeCarrito)
            
-        }
+        } */
     
 
     const eliminarItem = (id) =>{

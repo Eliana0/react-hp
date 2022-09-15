@@ -11,7 +11,8 @@ const Cart = () => {
             <div className="listCart">
                 <img src={item.img} alt="" className="imgListCart"></img>
                 <div className="listCartBody">
-                <h4>{item.title}</h4> {item.qty} unidades 
+                <h4>{item.title}</h4>
+                <h4>{item.precio}</h4> {item.qty} unidades 
                 <button onClick={() => test.eliminarItem(item.id)} className="listCartButtom">Eliminar</button>
                 </div>
             </div>)
