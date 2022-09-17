@@ -45,13 +45,39 @@ const CartContextProvider = ({children}) => {
         }
     }
 
-    const totalCart = () => {
+    const subtotalCart = () => {
         let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
-        console.log(total)
+        return total
+    }
+
+    const descuento =() => {
+        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
+        if ((total >= 10000) && (total < 20000)){
+           return Math.round(total / 100 * 10)
+        } else if ((total >= 20000)&& (total < 30000)) {
+            return Math.round(total / 100 * 15)
+        } else {
+            return total / 100 * 20
+        }
+    }
+
+    const porcentaje =() => {
+        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
+        if ((total >= 10000) && (total <= 20000)){
+            return "-10%"
+         } else if ((total >= 20000)&& (total < 30000)) {
+            return "-15%"
+        } else {
+            return "-20%"
+        }
+    }
+
+    const totalCart = () => {
+        return subtotalCart() - descuento();
     }
 
     return (
-        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalPorItem, numberCart, totalCart}}>
+        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalPorItem, numberCart, subtotalCart, descuento, porcentaje, totalCart}}>
             {children}
         </CartContext.Provider>
     );

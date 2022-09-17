@@ -145,3 +145,14 @@ nav ul a:hover{
   margin-top: 10%;
   color: rgba(99, 99, 161, 0.741);
 }
+.cartTotal{
+  margin: 7%;
+}
+.cartTotal div{
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+  color: rgb(99, 99, 161);
+  padding: 1%;
+  border-bottom: solid 3px rgb(255, 196, 0);
+}
