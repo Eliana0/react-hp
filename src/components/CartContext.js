@@ -7,32 +7,21 @@ const CartContextProvider = ({children}) => {
     
     const addItem = (item, qty) => {
         let encuentra = cartList.find(card => card.id === item.id);
-        if (encuentra === undefined){
-            setCartList([
-                    ...cartList, {
-                    id: item.id,
-                    title: item.title,
-                    img: item.img,
-                    precio: item.precio,
-                    qty: qty
-                }
-            ])
-        }else{
-            encuentra.qty += qty;
+            if (encuentra === undefined){
+                setCartList([
+                        ...cartList, {
+                        id: item.id,
+                        title: item.title,
+                        img: item.img,
+                        precio: item.precio,
+                        qty: qty
+                    }
+                ])
+            }else{
+                encuentra.qty += qty;
         }
     }    
-
-/*     const addItem = (item, qty) => {
-        let itemDeCarrito = {...item, qty}
-        setCartList([
-            ...cartList, 
-            itemDeCarrito
-        ])
-        console.log(itemDeCarrito)
-           
-        } */
     
-
     const eliminarItem = (id) =>{
         let eliminado = cartList.filter(item => item.id !== id);
         setCartList(eliminado)
@@ -41,9 +30,28 @@ const CartContextProvider = ({children}) => {
     const clear = () => {
         setCartList([])
     }
+    
+    const totalPorItem = (id) => {
+       let x= cartList.map(e => e.id).indexOf(id);
+       return cartList[x].precio * cartList[x].qty;
+    }
+
+    const numberCart = () => {
+        let total= cartList.reduce((acc, e) => acc + e?.qty, 0);
+        if (total === 0){
+            return [] 
+        } else{
+            return total
+        }
+    }
+
+    const totalCart = () => {
+        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
+        console.log(total)
+    }
 
     return (
-        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear}}>
+        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalPorItem, numberCart, totalCart}}>
             {children}
         </CartContext.Provider>
     );

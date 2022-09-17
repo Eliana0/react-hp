@@ -13,7 +13,7 @@ const Item = ({id, img, title, precio, description}) =>{
             <div>
                 <h4>{title}</h4>
                 <div className="cardMas">
-                <h5>{precio}</h5>
+                <h5>${precio}</h5>
         <Link to={'/item/' + id} className="linkMas">
                 <button className="buttonMas"><h5>Más</h5></button>
         </Link>

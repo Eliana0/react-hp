@@ -25,7 +25,7 @@ const ItemDetail = ({item}) =>{
     </div>
     <div>
         <h2 className="itemTitulo">{item.title}</h2>
-        <h3 className="itemPrecio">{item.precio}</h3>
+        <h3 className="itemPrecio">${item.precio}</h3>
         <h5>Stock: {item.stock}</h5>
         <h5>3, 6 y 12 cuotas sin interés</h5>
         <h6>{item.description}</h6>
@@ -35,7 +35,7 @@ const ItemDetail = ({item}) =>{
 
     {
         itemCount === 0
-        ?<ItemCount stock={5} initial={0} onAdd={onAdd} />
+        ?<ItemCount stock={item.stock} initial={0} onAdd={onAdd} />
         :<Link to='/cart'><button className="buttonCarrito">Ir a Carrito</button></Link>
     }
     

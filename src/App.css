@@ -25,6 +25,7 @@ nav ul a{
   color: rgb(255, 255, 85);
   text-decoration: none;
   margin: 2%;
+  display: flex;
   font-size: 120%;
 }
 nav ul a:hover{
@@ -136,4 +137,11 @@ nav ul a:hover{
 .listCartButtom:hover{
   color: rgb(255, 196, 0);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.msjVacio{
+  display: flex;
+  justify-content: center;
+  font-size: 280%;
+  margin-top: 10%;
+  color: rgba(99, 99, 161, 0.741);
 }
