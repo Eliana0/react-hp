@@ -14,7 +14,8 @@ const CartContextProvider = ({children}) => {
                         title: item.title,
                         img: item.img,
                         precio: item.precio,
-                        qty: qty
+                        qty: qty,
+                        idCategory: item.idCategory
                     }
                 ])
             }else{
@@ -55,9 +56,9 @@ const CartContextProvider = ({children}) => {
         if ((total >= 10000) && (total < 20000)){
            return Math.round(total / 100 * 10)
         } else if ((total >= 20000)&& (total < 30000)) {
-            return Math.round(total / 100 * 15)
-        } else {
-            return total / 100 * 20
+            return  Math.round(total / 100 * 15)
+        } else if (total > 30000){
+            return Math.round(total / 100 * 20)
         }
     }
 
@@ -67,13 +68,17 @@ const CartContextProvider = ({children}) => {
             return "-10%"
          } else if ((total >= 20000)&& (total < 30000)) {
             return "-15%"
-        } else {
+        } else if (total > 30000){
             return "-20%"
         }
     }
 
     const totalCart = () => {
-        return subtotalCart() - descuento();
+        if (subtotalCart() >= 10000){
+            return subtotalCart() - descuento();
+        }else {
+            return subtotalCart()
+        }
     }
 
     return (

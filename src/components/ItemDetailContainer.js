@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Data from "../utils/Data";
 import ItemDetails from "./ItemDetail"
 import promise from "../utils/promise";
 import { useParams } from "react-router-dom";
+import Data from "../utils/Data";
 
 const ItemDetailContainer = () =>{
     const[dato, setDato] = useState({});

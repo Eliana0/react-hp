@@ -1,28 +1,22 @@
 import { useState, useEffect } from "react";
-import promise from "../utils/promise";
-import Data from "../utils/Data";
+/* import promise from "../utils/promise"; */
+/* import Data from "../utils/Data"; */
 import { useParams } from 'react-router-dom';
 import Item from "../utils/Item";
+import { firestore } from '../utils/firebasesConfig'
 
 const ItemList = () => {
     const [Items, setItems] = useState([]);
-    const {id} = useParams();
+    const {idCategory} = useParams();
 
     useEffect(() => {
-        if(id){
-        promise(Data.filter(item => item.category.id === parseInt(id)), 2000)
+        firestore(idCategory)
         .then(result => setItems(result))
-        .catch(err => console.log(err))
-        }else{
-            promise(Data, 2000)
-            .then(result => setItems(result))
-            .catch(err => console.log(err))
-        }
-    },[id])
+        },[idCategory])
 
     return (
         <>
-        {Items.map(item => <Item id={item.id} img={item.img} title={item.title} precio={item.precio} description={item.description} />
+        {Items.map(item => <Item idCtegory={item.idCategory} id={item.id} img={item.img} title={item.title} precio={item.precio} description={item.description} />
 
             )}
         </>
