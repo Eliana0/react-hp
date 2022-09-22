@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 /* import Data from "../utils/Data"; */
 import { useParams } from 'react-router-dom';
 import Item from "../utils/Item";
-import { firestore } from '../utils/firebasesConfig'
+import { firestoreFetch } from '../utils/firebasesConfig'
 
 const ItemList = () => {
     const [Items, setItems] = useState([]);
-    const {idCategory} = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
-        firestore(idCategory)
+        firestoreFetch(id)
         .then(result => setItems(result))
-        },[idCategory])
+        },[id])
 
     return (
         <>

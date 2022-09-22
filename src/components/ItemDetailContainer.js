@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import ItemDetails from "./ItemDetail"
-import promise from "../utils/promise";
+/* import promise from "../utils/promise"; */
+import { firestoreFetchOne } from "../utils/firebaseFetch"
 import { useParams } from "react-router-dom";
-import Data from "../utils/Data";
+/* import Data from "../utils/Data"; */
 
 const ItemDetailContainer = () =>{
     const[dato, setDato] = useState({});
-    const {id} = useParams();
+    const {idCategory} = useParams();
 
     useEffect(()=> {
-        promise(Data.find(item => item.id === parseInt(id)), 2000)
+
+        firestoreFetchOne(idCategory)
         .then(result => setDato(result))
         .catch(err => console.log(err))
     },[]);

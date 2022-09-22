@@ -16,11 +16,11 @@ const firebasesConfig = {
 // Initialize Firebase
 const app = initializeApp(firebasesConfig);
 export const db = getFirestore(app);
-export const firestore = async (idCategory) => {
+export const firestoreFetch = async (id) => {
     let q;
-    if(idCategory){
+    if(id){
         //traer solo los elementos de esa categoria
-        q = query(collection(db, "Data"), where('idCategory', '==', idCategory));
+        q = query(collection(db, "Data"), where("idCategory", '==', id));
     }else{
         q = query(collection(db, "Data"));
     }
