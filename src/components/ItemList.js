@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-/* import promise from "../utils/promise"; */
-/* import Data from "../utils/Data"; */
 import { useParams } from 'react-router-dom';
 import Item from "../utils/Item";
 import { firestoreFetch } from '../utils/firebasesConfig'
