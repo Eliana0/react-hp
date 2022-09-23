@@ -156,3 +156,7 @@ nav ul a:hover{
   padding: 1%;
   border-bottom: solid 3px rgb(255, 196, 0);
 }
+.divButtonFinalizar{
+  display: flex;
+  justify-content: center;
+}

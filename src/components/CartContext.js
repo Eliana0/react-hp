@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { doc, serverTimestamp, collection, setDoc, updateDoc, increment } from "firebase/firestore";
+import { db } from '../utils/firebasesConfig'
 
 export const CartContext = createContext();
 
@@ -21,7 +23,9 @@ const CartContextProvider = ({children}) => {
             }else{
                 encuentra.qty += qty;
         }
-    }    
+    }   
+    
+    const subtotal = [];
     
     const eliminarItem = (id) =>{
         let eliminado = cartList.filter(item => item.id !== id);
@@ -32,9 +36,11 @@ const CartContextProvider = ({children}) => {
         setCartList([])
     }
     
-    const totalPorItem = (id) => {
+    const totalItem = (id) => {
        let x= cartList.map(e => e.id).indexOf(id);
-       return cartList[x].precio * cartList[x].qty;
+       let totalPorItem= (cartList[x].precio * cartList[x].qty);
+       subtotal.push(totalPorItem)
+       return totalPorItem;
     }
 
     const numberCart = () => {
@@ -47,12 +53,13 @@ const CartContextProvider = ({children}) => {
     }
 
     const subtotalCart = () => {
-        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
-        return total
+        const suma = (accumulator, curr) => accumulator + curr;
+        return (subtotal.reduce(suma));
     }
 
     const descuento =() => {
-        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
+        const suma = (accumulator, curr) => accumulator + curr;
+        let total = subtotal.reduce(suma);
         if ((total >= 10000) && (total < 20000)){
            return Math.round(total / 100 * 10)
         } else if ((total >= 20000)&& (total < 30000)) {
@@ -63,7 +70,8 @@ const CartContextProvider = ({children}) => {
     }
 
     const porcentaje =() => {
-        let total= cartList.reduce((acc, e) => acc + e?.precio, 0);
+        const suma = (accumulator, curr) => accumulator + curr;
+        let total = subtotal.reduce(suma);
         if ((total >= 10000) && (total <= 20000)){
             return "-10%"
          } else if ((total >= 20000)&& (total < 30000)) {
@@ -81,8 +89,43 @@ const CartContextProvider = ({children}) => {
         }
     }
 
+    const createOrder = () => {
+        let itemDB = cartList.map(item => ({
+            id: item.id,
+            title: item.title,
+            precio: item.precio,
+            qty: item.qty
+        }))
+        let order = {
+            cliente:{
+                name: "Juanita",
+                mail: "juanita@gmail.com",
+                tel: "12345678"
+            },
+            date: serverTimestamp(),
+            items: itemDB,
+            totla: totalCart()
+        }
+        const createOrderInFirestore = async () => {
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }
+        createOrderInFirestore()
+            .then(result => {
+                alert("orden " + result.id)
+                cartList.forEach(async(item) => {
+                    const itemRef = doc(db, "Data", item.id);
+                    await updateDoc(itemRef, {stock: increment(-item.qty)})
+                });
+                clear()
+            })
+            .catch(err => console.log(err))
+    }
+
+
     return (
-        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalPorItem, numberCart, subtotalCart, descuento, porcentaje, totalCart}}>
+        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalItem, numberCart, subtotalCart, descuento, porcentaje, totalCart, createOrder}}>
             {children}
         </CartContext.Provider>
     );

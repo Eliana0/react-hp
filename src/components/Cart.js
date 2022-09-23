@@ -2,8 +2,11 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 
+
 const Cart = () => {
     const test = useContext(CartContext);
+
+
 
     return (
         <>
@@ -15,7 +18,7 @@ const Cart = () => {
                 <img src={item.img} alt="" className="imgListCart"></img>
                 <div className="listCartBody">
                 <h4>{item.title}</h4>
-                <h4>${test.totalPorItem(item.id)}</h4> 
+                <h4>${test.totalItem(item.id)}</h4> 
                 {item.qty} unidades ${item.precio}/cu
                 <button onClick={() => test.eliminarItem(item.id)} className="listCartButtom">Eliminar</button>
                 </div>
@@ -24,11 +27,14 @@ const Cart = () => {
         {
             test.cartList.length === 0 ?
             <h1 className="msjVacio">El carrito está vacío</h1>
-            : <div className="cartTotal">
-                <div><h4>Subtotal: </h4><h4>${test.subtotalCart()}</h4></div>
-                <div><h4>{test.porcentaje()}</h4><h4>{test.descuento()}</h4></div>
-                <div><h4>Total: </h4><h4>${test.totalCart()}</h4></div>
-            </div>
+            : <div>
+                <div className="cartTotal">
+                    <div><h4>Subtotal: </h4><h4>${test.subtotalCart()}</h4></div>
+                    <div><h4>{test.porcentaje()}</h4><h4>{test.descuento()}</h4></div>
+                    <div><h4>Total: </h4><h4>${test.totalCart()}</h4></div>
+                </div>
+                    <div className="divButtonFinalizar"><button className="buttonCarrito" onClick={()=>test.createOrder()}>Finalizar</button></div>
+              </div>
         }
         </>
     )
