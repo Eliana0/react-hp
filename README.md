@@ -46,6 +46,8 @@ Las tecnologías que utilicé para crear este proyecto son
 * HTML
 * CSS
 * React.js
+* Bootstrap
+* SweetAlert
 
 ## Autores ✒️
 
