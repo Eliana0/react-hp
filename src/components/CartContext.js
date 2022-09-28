@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { doc, serverTimestamp, collection, setDoc, updateDoc, increment } from "firebase/firestore";
-import { db } from '../utils/firebasesConfig'
+import { db } from '../utils/firebasesConfig';
+import swal from 'sweetalert';
 
 export const CartContext = createContext();
 
@@ -17,7 +18,8 @@ const CartContextProvider = ({children}) => {
                         img: item.img,
                         precio: item.precio,
                         qty: qty,
-                        idCategory: item.idCategory
+                        idCategory: item.idCategory,
+                        stock: item.stock
                     }
                 ])
             }else{
@@ -113,7 +115,7 @@ const CartContextProvider = ({children}) => {
         }
         createOrderInFirestore()
             .then(result => {
-                alert("orden " + result.id)
+                swal("Gracias!!", "Su pedido es la orden " + result.id, "success");
                 cartList.forEach(async(item) => {
                     const itemRef = doc(db, "Data", item.id);
                     await updateDoc(itemRef, {stock: increment(-item.qty)})
@@ -122,10 +124,14 @@ const CartContextProvider = ({children}) => {
             })
             .catch(err => console.log(err))
     }
-
+    const verificaStock0 = (stock) => {
+        if (stock === 0){
+            return <img src={"https://www.albertmotosbicis.com/wp-content/uploads/2018/03/AGOTADO.png"} alt="pack" className="proximamente" />
+        }
+    }
 
     return (
-        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalItem, numberCart, subtotalCart, descuento, porcentaje, totalCart, createOrder}}>
+        <CartContext.Provider value={{cartList, addItem, eliminarItem, clear, totalItem, numberCart, subtotalCart, descuento, porcentaje, totalCart, createOrder, verificaStock0}}>
             {children}
         </CartContext.Provider>
     );

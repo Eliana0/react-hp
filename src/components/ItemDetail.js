@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
 import { CartContext } from "./CartContext"
+import swal from 'sweetalert';
 
 
 const ItemDetail = ({item}) =>{
@@ -9,10 +10,11 @@ const ItemDetail = ({item}) =>{
     const test = useContext(CartContext);
 
     const onAdd = (qty) => {
-        alert("Tiene " + qty + " elementos");
+        swal("Genial!!", "Tiene " + qty + " elementos", "success");
         setItemCount(qty);
         test.addItem(item, qty);
     }
+
 
     return(
 
@@ -21,6 +23,7 @@ const ItemDetail = ({item}) =>{
     <div >
     <div className="blockCard">
     <div>
+        {test.verificaStock0(item.stock)}
         <img src={item.img} alt="pack" className="packItem" />
     </div>
     <div>
