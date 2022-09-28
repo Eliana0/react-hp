@@ -9,10 +9,14 @@ const ItemDetail = ({item}) =>{
     const [itemCount, setItemCount] = useState(0);
     const test = useContext(CartContext);
 
-    const onAdd = (qty) => {
-        swal("Genial!!", "Tiene " + qty + " elementos", "success");
-        setItemCount(qty);
-        test.addItem(item, qty);
+    const onAdd = (qty, stock) => {
+        if(stock > 0){
+            swal("Genial!!", "Tiene " + qty + " elementos", "success");
+            setItemCount(qty);
+            test.addItem(item, qty);
+        }else{
+            swal("Lo sentimos. El producto no está disponible en este momento");
+        }
     }
 
 

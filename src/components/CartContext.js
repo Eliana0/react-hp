@@ -28,6 +28,8 @@ const CartContextProvider = ({children}) => {
     }   
     
     const subtotal = [];
+    console.log(subtotal)
+    
     
     const eliminarItem = (id) =>{
         let eliminado = cartList.filter(item => item.id !== id);
@@ -54,8 +56,13 @@ const CartContextProvider = ({children}) => {
         }
     }
 
+
     const subtotalCart = () => {
         const suma = (accumulator, curr) => accumulator + curr;
+        let numeroArray= (subtotal.length / 2);
+        let total = subtotal.splice(0, numeroArray);
+        console.log(total)
+        /* subtotal.splice(0, numeroArray); */
         return (subtotal.reduce(suma));
     }
 
