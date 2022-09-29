@@ -10,7 +10,7 @@ const ItemDetail = ({item}) =>{
     const test = useContext(CartContext);
 
     const onAdd = (qty, stock) => {
-        if(stock > 0){
+        if(item.stock > 0){
             swal("Genial!!", "Tiene " + qty + " elementos", "success");
             setItemCount(qty);
             test.addItem(item, qty);
