@@ -28,7 +28,9 @@ const CartContextProvider = ({children}) => {
     }   
     
     const subtotal = [];
-    console.log(subtotal)
+/*     let numeroArray= (subtotal.length / 2);
+    let total = subtotal.splice(0, numeroArray);*/
+    console.log(subtotal) 
     
     
     const eliminarItem = (id) =>{
@@ -43,7 +45,7 @@ const CartContextProvider = ({children}) => {
     const totalItem = (id) => {
        let x= cartList.map(e => e.id).indexOf(id);
        let totalPorItem= (cartList[x].precio * cartList[x].qty);
-       subtotal.push(totalPorItem)
+       subtotal.push(totalPorItem / 2)
        return totalPorItem;
     }
 
@@ -59,9 +61,9 @@ const CartContextProvider = ({children}) => {
 
     const subtotalCart = () => {
         const suma = (accumulator, curr) => accumulator + curr;
-        let numeroArray= (subtotal.length / 2);
+/*         let numeroArray= (subtotal.length / 2);
         let total = subtotal.splice(0, numeroArray);
-        console.log(total)
+        console.log(numeroArray) */
         /* subtotal.splice(0, numeroArray); */
         return (subtotal.reduce(suma));
     }
