@@ -28,9 +28,7 @@ const CartContextProvider = ({children}) => {
     }   
     
     const subtotal = [];
-/*     let numeroArray= (subtotal.length / 2);
-    let total = subtotal.splice(0, numeroArray);*/
-    console.log(subtotal) 
+    console.log(subtotal)
     
     
     const eliminarItem = (id) =>{
@@ -60,17 +58,13 @@ const CartContextProvider = ({children}) => {
 
 
     const subtotalCart = () => {
-        const suma = (accumulator, curr) => accumulator + curr;
-/*         let numeroArray= (subtotal.length / 2);
-        let total = subtotal.splice(0, numeroArray);
-        console.log(numeroArray) */
-        /* subtotal.splice(0, numeroArray); */
-        return (subtotal.reduce(suma));
+        let suma = cartList.map(item => totalItem(item.id));
+        return suma.reduce((prevValue, currValue) => prevValue + currValue)
     }
 
     const descuento =() => {
-        const suma = (accumulator, curr) => accumulator + curr;
-        let total = subtotal.reduce(suma);
+        let suma = cartList.map(item => totalItem(item.id));
+        let total = suma.reduce((prevValue, currValue) => prevValue + currValue)
         if ((total >= 10000) && (total < 20000)){
            return Math.round(total / 100 * 10)
         } else if ((total >= 20000)&& (total < 30000)) {
@@ -81,8 +75,8 @@ const CartContextProvider = ({children}) => {
     }
 
     const porcentaje =() => {
-        const suma = (accumulator, curr) => accumulator + curr;
-        let total = subtotal.reduce(suma);
+        let suma = cartList.map(item => totalItem(item.id));
+        let total = suma.reduce((prevValue, currValue) => prevValue + currValue)
         if ((total >= 10000) && (total <= 20000)){
             return "-10%"
          } else if ((total >= 20000)&& (total < 30000)) {

@@ -7,10 +7,12 @@ const Item = ({id, img, title, precio, description}) =>{
     }
     return(
         <>
-        <div>
+        <div className="divCard">
             <div className='card'>
-                <img src={img} alt="pack" className="pack" />
-            <div>
+                <div className="img">
+                    <img src={img} alt="pack" className="pack" />
+                </div>
+            <div className="divBlock">
                 <h4>{title}</h4>
                 <div className="cardMas">
                 <h5>${precio}</h5>

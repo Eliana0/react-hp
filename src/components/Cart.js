@@ -32,7 +32,7 @@ const Cart = () => {
                     <div><h4>Subtotal: </h4><h4>${test.subtotalCart()}</h4></div>
                     <div><h4>{test.porcentaje()}</h4><h4>{test.descuento()}</h4></div>
                     <div><h4>Total: </h4><h4>${test.totalCart()}</h4></div>
-                </div>
+                </div> 
                     <div className="divButtonFinalizar"><button className="buttonCarrito" onClick={()=>test.createOrder()}>Finalizar</button></div>
               </div>
         }
