@@ -165,3 +165,154 @@ nav ul a:hover{
   width: 20%;
   position: absolute;
 }
+
+@media screen and (max-device-width: 1350px){
+  .card{
+    grid-template-columns: repeat(1, 50%) 1fr;
+  }
+  #toggler{
+    display: flex;
+    justify-content: end;
+  }
+}
+@media screen and (max-device-width: 1050px){
+  .galeria{
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-device-width: 800px){
+  nav ul{
+    display: block;
+  }
+  nav ul a{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0%;
+    margin-right: 5%;
+  }
+}
+@media screen and (max-device-width: 690px){
+  .galeria{
+    grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-device-width: 350px){
+  .card{
+    font-size: 70%;
+    grid-template-columns: repeat(1, 55%) 1fr;
+  }
+  .card h5{
+    font-size: 170%;
+  }
+  .card h4{
+    font-size: 170%;
+  }
+}
+@media screen and (max-device-width: 340px){
+  .card{
+    grid-template-columns: repeat(1, 50%) 1fr;
+  }
+  .pack{
+    margin-top: 25%;
+    width: 140px;
+  }
+  .card h5{
+    font-size: 165%;
+  }
+  .card h4{
+    font-size: 165%;
+  }
+}
+@media screen and (max-device-width: 1300px){
+  .packItem{
+    width: 70%;
+  }
+  .proximamente{
+    width: 27%;
+  }
+}
+@media screen and (max-device-width: 1000px){
+  .packItem{
+    width: 80%;
+  }
+  .proximamente{
+    width: 32%;
+  }
+}
+@media screen and (max-device-width: 900px){
+  .packItem{
+    width: 100%;
+  }
+  .proximamente{
+    width: 38%;
+  }
+}
+@media screen and (max-device-width: 800px){
+  .packItem{
+    margin-top: 20%;
+  }
+  .proximamente{
+    margin-top: 10%;
+  }
+}
+@media screen and (max-device-width: 700px){
+  .blockCard{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .packItem{
+    margin-top: 0%;
+    width: 50%;
+    z-index: 1;
+  }
+  .proximamente{
+    margin-top: 10%;
+    width: 30%;
+    z-index: 2;
+  }
+  .contentPackItem{
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-device-width: 450px){
+  .packItem{
+    width: 75%;
+  }
+  .proximamente{
+    width: 30%;
+  }
+}
+@media screen and (max-device-width: 800px){
+  .listCartBody{
+    margin-left: 20%;
+  }
+}
+@media screen and (max-device-width: 600px){
+  .imgListCart{
+    width: 150px;
+  }
+  .listCart{
+    margin-right: 0%;
+  }
+  .listCartBody{
+    margin-left: 5%;
+  }
+}
+@media screen and (max-device-width: 600px){
+  .imgListCart{
+    width: 130px;
+  }
+}
+@media screen and (max-device-width: 450px){
+  .listCart{
+    margin-left: 0%;
+  }
+  .buttonCarrito{
+    width: 125px;
+  }
+  .listCartButtom{
+    width: 100px;
+  }
+}

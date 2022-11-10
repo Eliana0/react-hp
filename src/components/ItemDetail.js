@@ -26,7 +26,7 @@ const ItemDetail = ({item}) =>{
     <div className='cardItem'>
     <div >
     <div className="blockCard">
-    <div>
+    <div className="contentPackItem">
         {test.verificaStock0(item.stock)}
         <img src={item.img} alt="pack" className="packItem" />
     </div>
