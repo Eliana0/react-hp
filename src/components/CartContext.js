@@ -27,9 +27,6 @@ const CartContextProvider = ({children}) => {
         }
     }   
     
-    const subtotal = [];
-    console.log(subtotal)
-    
     
     const eliminarItem = (id) =>{
         let eliminado = cartList.filter(item => item.id !== id);
@@ -43,7 +40,6 @@ const CartContextProvider = ({children}) => {
     const totalItem = (id) => {
        let x= cartList.map(e => e.id).indexOf(id);
        let totalPorItem= (cartList[x].precio * cartList[x].qty);
-       subtotal.push(totalPorItem / 2)
        return totalPorItem;
     }
 
