@@ -2,6 +2,10 @@
 
 Página de venta de productos de colección de Harry Potter.
 
+## Link al sitio web
+
+https://tienda-harry-potter-proyecto-react.netlify.app
+
 ## Comenzando descarga 🚀
 
 * Paso 1
