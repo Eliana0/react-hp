@@ -43,16 +43,12 @@ Pulsa ↵ Enter. El proceso de clonación se iniciará y mostrará su progreso e
 
 ## Construido con 🛠️
 Las tecnologías que utilicé para crear este proyecto son
->>>>>>> 5ef649975ddb5463aa04c92547a4c73f46bfde0c
 
 * HTML
 * CSS
 * React.js
-<<<<<<< HEAD
-=======
 * Bootstrap
 * SweetAlert
->>>>>>> 5ef649975ddb5463aa04c92547a4c73f46bfde0c
 
 ## Autores ✒️
 
@@ -60,10 +56,8 @@ Las tecnologías que utilicé para crear este proyecto son
 
 ## Gracias 🎁
 
-<<<<<<< HEAD
 * Este es mi primer proyecto de react 📢
 * Gracias por tomar el tiempo para revisarlo 🤓.
 =======
 Este es mi primer proyecto de react 📢
 Gracias por tomar el tiempo para revisarlo 🤓.
->>>>>>> 5ef649975ddb5463aa04c92547a4c73f46bfde0c
