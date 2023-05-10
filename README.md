@@ -56,8 +56,5 @@ Las tecnologías que utilicé para crear este proyecto son
 
 ## Gracias 🎁
 
-* Este es mi primer proyecto de react 📢
-* Gracias por tomar el tiempo para revisarlo 🤓.
-=======
 Este es mi primer proyecto de react 📢
 Gracias por tomar el tiempo para revisarlo 🤓.
